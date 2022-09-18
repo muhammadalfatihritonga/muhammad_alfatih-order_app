@@ -1,3 +1,9 @@
 STORE "order" AS STRING WITH VARCHAR
 STORE "quantity" AS NUMBER WITH ANY VALUE
 STORE "add_order" AS STRING WITH ENUM OF "Y", "y"
+
+IF "add_order" EQUAL "Y/y"
+    STORE "order" AS STRING WITH VARCHAR
+    STORE "quantity" AS NUMBER WITH ANY VALUE
+ELSE
+    DISPLAY "total = order * quantity"
